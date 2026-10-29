@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#03060f">
+<title>ORBIT — Photographic Solar System</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--ink:#f8f8fb;--muted:#9da6be;--gold:#f5c889}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#03060f;color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}#space{position:fixed;inset:0;z-index:0;display:block;pointer-events:none}.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(3,6,15,.54),transparent 68%),radial-gradient(ellipse at 52% 40%,transparent 28%,rgba(3,6,15,.45) 110%)}header{position:fixed;inset:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:30px 5.2vw;z-index:30;pointer-events:none}header>*{pointer-events:auto}.logo{font:700 19px 'Space Grotesk',sans-serif;letter-spacing:.27em}.logo span{color:#f7c88b}.header-right{font-size:10px;letter-spacing:.22em;font-weight:700;color:#b2bad0}.header-right span{display:inline-block;height:5px;width:5px;border-radius:50%;background:#dfb680;margin:0 13px 2px}.progress{position:fixed;inset:0 auto auto 0;width:0;height:2px;background:linear-gradient(90deg,#df956e,#f3d4a6);z-index:40}.side{position:fixed;right:4.6vw;top:50%;transform:translateY(-50%);z-index:25;display:flex;flex-direction:column;gap:15px;align-items:flex-end}.nav-dot{display:flex;align-items:center;gap:13px;border:0;background:none;color:#b3bbd0;font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.55;transition:opacity .2s}.nav-dot i{width:5px;height:5px;border-radius:50%;display:block;background:#a6b0cc;transition:all .3s}.nav-dot.active{opacity:1;color:#fff}.nav-dot.active i{width:9px;height:9px;background:#f6c38c;box-shadow:0 0 15px #f6a557}.scroll-label{position:fixed;bottom:35px;left:5.2vw;z-index:25;font-size:10px;letter-spacing:.2em;color:#b5bdd2;display:flex;gap:20px;align-items:center}.scroll-label:before{content:'';display:block;width:42px;height:1px;background:#9aa4b8}.section{height:110vh;min-height:710px;position:relative;z-index:4;display:flex;align-items:center;padding:0 13vw 0 9vw;pointer-events:none}.intro{height:110vh}.content{max-width:520px;opacity:.3;transform:translateY(38px);transition:transform .8s ease,opacity .8s ease;pointer-events:auto}.section.in-view .content{opacity:1;transform:translateY(0)}.eyebrow{display:flex;align-items:center;gap:16px;font-size:11px;letter-spacing:.34em;font-weight:700;color:#f1c18d;text-transform:uppercase}.eyebrow:before{content:'';width:26px;height:1px;background:#f1c18d}h1,h2{font-family:'Space Grotesk',sans-serif;letter-spacing:-.06em;margin:18px 0 20px;font-weight:500;line-height:.96}h1{font-size:clamp(64px,10vw,150px)}h2{font-size:clamp(65px,9vw,128px)}h1 em{display:block;font-style:normal;color:#f3c895}.description{font-size:15px;line-height:2.05;color:#b1bbcf;max-width:385px}.meta{display:flex;gap:40px;margin-top:43px;border-top:1px solid rgba(255,255,255,.16);padding-top:25px}.meta div{display:flex;flex-direction:column;gap:10px}.meta strong{font:500 23px 'Space Grotesk',sans-serif}.meta small{font-size:10px;letter-spacing:.16em;color:#8d99b4;text-transform:uppercase}.index{font:400 12px 'Space Grotesk',sans-serif;color:#8b95ac;margin-bottom:32px;letter-spacing:.22em}.index b{color:#f3c895;font-weight:500}.intro .content{max-width:650px}.intro .description{max-width:480px}.ending{text-align:center;justify-content:center;height:100vh}.ending .content{max-width:800px}.ending h2{font-size:clamp(48px,7vw,100px)}.ending .description{margin:auto}.cta{pointer-events:auto;display:inline-block;border:1px solid #9e8c76;padding:15px 25px;margin-top:34px;font-size:12px;letter-spacing:.1em;background:rgba(0,0,0,.2);transition:background .2s}.cta:hover{background:rgba(245,200,137,.13)}.fallback{display:none;position:fixed;inset:auto 12px 12px;z-index:50;background:#22293e;padding:15px;font-size:13px;border:1px solid #596781}.hint{font-size:10px;letter-spacing:.14em;color:#a1abc2;line-height:1.8;margin-top:24px}.loading{position:fixed;inset:0;z-index:60;background:#03060f;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;transition:opacity .7s,visibility .7s}.loading.hide{opacity:0;visibility:hidden}.loading strong{font:600 27px 'Space Grotesk';letter-spacing:.3em}.loading small{font-size:11px;letter-spacing:.2em;color:#98a2b8}.loading .line{width:140px;height:1px;background:linear-gradient(90deg,transparent,#f5c889,transparent);animation:breathe 1.2s ease-in-out infinite alternate}@keyframes breathe{to{opacity:.25;transform:scaleX(.55)}}@media(max-width:700px){header{padding:24px 6vw}.header-right{font-size:8px}.side{right:5vw;gap:18px}.nav-dot{gap:0}.nav-dot span{display:none}.nav-dot i{width:5px;height:5px}.section{padding:0 12vw 0 7vw;min-height:640px;height:100svh;align-items:flex-end;padding-bottom:21vh}.intro{align-items:center;padding-bottom:0}.content{max-width:320px}.intro .content{max-width:330px}.description{font-size:13px;line-height:1.85}h1{font-size:clamp(54px,15vw,90px)}h2{font-size:clamp(57px,15vw,82px)}.meta{gap:22px;margin-top:23px;padding-top:18px}.meta strong{font-size:18px}.meta small{font-size:9px}.scroll-label{bottom:22px;left:7vw}.ending{align-items:center;padding-bottom:0}.vignette{background:linear-gradient(0deg,rgba(3,6,15,.85),transparent 70%),linear-gradient(90deg,rgba(3,6,15,.38),transparent 80%)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.content{transition:none}.loading .line{animation:none}}
+#asset-status{position:fixed;z-index:30;bottom:20px;left:22px;border:1px solid #ffffff2a;background:#07111bdf;backdrop-filter:blur(14px);color:#c2d3e9;border-radius:8px;padding:10px 14px;font:11px/1.5 sans-serif;letter-spacing:.02em;pointer-events:none;transition:opacity .6s}#asset-status.done{opacity:0}#asset-status.error{border-color:#ba705b;color:#ffc6b8}@media(max-width:700px){#asset-status{bottom:12px;left:12px;right:12px;text-align:center}}
+</style>
+</head>
+<body>
+<div class="loading" id="loading"><strong>ORBIT<span style="color:#f3c895">.</span></strong><div class="line"></div><small>LOADING PLANETARY SURFACES</small></div>
+<canvas id="space" aria-hidden="true"></canvas><div class="vignette"></div><div class="progress" id="progress"></div>
+<header><a class="logo" href="#start">ORBIT<span>.</span></a><div class="header-right">SOLAR SYSTEM <span></span> INTERACTIVE EXPERIENCE</div></header>
+<nav class="side" aria-label="행성 탐색" id="nav"></nav><div class="scroll-label">SCROLL TO EXPLORE</div>
+<main>
+<section class="section intro in-view" id="start"><div class="content"><div class="eyebrow">Beyond the ordinary</div><h1>THE<br><em>UNIVERSE.</em></h1><p class="description">우리가 살고 있는 작은 행성 너머, 끝없이 펼쳐지는 우주. 스크롤을 따라 태양계의 놀라운 세계를 탐험해 보세요.</p><div class="hint">AN IMMERSIVE 3D JOURNEY THROUGH SPACE</div></div></section>
+<section class="section" id="sun"><div class="content"><div class="index"><b>01</b> / 09 — OUR STAR</div><div class="eyebrow">The center of it all</div><h2>SUN.</h2><p class="description">태양계의 심장. 거대한 에너지와 빛으로 모든 행성의 하루를 만들어 내는 별.</p><div class="meta"><div><small>유형</small><strong>G2V 항성</strong></div><div><small>표면 온도</small><strong>약 5,500°C</strong></div></div></div></section>
+<section class="section" id="mercury"><div class="content"><div class="index"><b>02</b> / 09 — INNER PLANET</div><div class="eyebrow">The swiftest planet</div><h2>MERCURY.</h2><p class="description">태양에서 가장 가까운 행성. 작지만 극단적인 온도 변화를 품고 태양 주위를 빠르게 달립니다.</p><div class="meta"><div><small>태양까지 평균 거리</small><strong>0.39 AU</strong></div><div><small>공전 주기</small><strong>88일</strong></div></div></div></section>
+<section class="section" id="venus"><div class="content"><div class="index"><b>03</b> / 09 — INNER PLANET</div><div class="eyebrow">The brightest wanderer</div><h2>VENUS.</h2><p class="description">두꺼운 구름 아래 뜨거운 세상. 밤하늘에서 가장 밝게 보이는 행성입니다.</p><div class="meta"><div><small>태양까지 평균 거리</small><strong>0.72 AU</strong></div><div><small>표면 평균 온도</small><strong>약 465°C</strong></div></div></div></section>
+<section class="section" id="earth"><div class="content"><div class="index"><b>04</b> / 09 — OUR HOME</div><div class="eyebrow">The pale blue dot</div><h2>EARTH.</h2><p class="description">푸른 바다와 하얀 구름, 지금까지 확인된 생명의 집. 광활한 우주 속 우리의 특별한 고향.</p><div class="meta"><div><small>태양까지 평균 거리</small><strong>1 AU</strong></div><div><small>자연위성</small><strong>달 1개</strong></div></div></div></section>
+<section class="section" id="mars"><div class="content"><div class="index"><b>05</b> / 09 — RED PLANET</div><div class="eyebrow">The next frontier</div><h2>MARS.</h2><p class="description">붉은 먼지와 거대한 화산의 땅. 인류가 오래도록 탐험을 꿈꿔온 행성입니다.</p><div class="meta"><div><small>태양까지 평균 거리</small><strong>1.52 AU</strong></div><div><small>하루 길이</small><strong>24시간 37분</strong></div></div></div></section>
+<section class="section" id="jupiter"><div class="content"><div class="index"><b>06</b> / 09 — GAS GIANT</div><div class="eyebrow">King of the planets</div><h2>JUPITER.</h2><p class="description">태양계에서 가장 큰 행성. 소용돌이치는 구름과 거대한 폭풍이 끝없이 이어집니다.</p><div class="meta"><div><small>태양까지 평균 거리</small><strong>5.20 AU</strong></div><div><small>지구 대비 지름</small><strong>약 11배</strong></div></div></div></section>
+<section class="section" id="saturn"><div class="content"><div class="index"><b>07</b> / 09 — RINGED GIANT</div><div class="eyebrow">The jewel of space</div><h2>SATURN.</h2><p class="description">얼음과 암석으로 이루어진 거대한 고리가 만들어낸, 태양계에서 가장 우아한 실루엣.</p><div class="meta"><div><small>태양까지 평균 거리</small><strong>9.58 AU</strong></div><div><small>공전 주기</small><strong>약 29.4년</strong></div></div></div></section>
+<section class="section" id="uranus"><div class="content"><div class="index"><b>08</b> / 09 — ICE GIANT</div><div class="eyebrow">The sideways planet</div><h2>URANUS.</h2><p class="description">청록빛 얼음 거인. 자전축이 크게 기울어 거의 옆으로 누운 채 태양을 공전합니다.</p><div class="meta"><div><small>태양까지 평균 거리</small><strong>19.2 AU</strong></div><div><small>자전축 기울기</small><strong>약 98°</strong></div></div></div></section>
+<section class="section" id="neptune"><div class="content"><div class="index"><b>09</b> / 09 — ICE GIANT</div><div class="eyebrow">Into the deep blue</div><h2>NEPTUNE.</h2><p class="description">태양계의 가장 먼 행성. 깊고 푸른 대기 속에서 극도로 강력한 바람이 불어옵니다.</p><div class="meta"><div><small>태양까지 평균 거리</small><strong>30.1 AU</strong></div><div><small>공전 주기</small><strong>약 165년</strong></div></div></div></section>
+<section class="section ending" id="end"><div class="content"><div class="eyebrow" style="justify-content:center">The journey continues</div><h2>STAY<br>CURIOUS.</h2><p class="description">우리가 아는 우주는 아직 작은 시작에 불과합니다.<br>다음 여행은 어디로 떠날까요?</p><a class="cta" href="#start">↗ BACK TO THE BEGINNING</a></div></section>
+</main><footer style="position:relative;z-index:10;text-align:center;padding:20px 15px 35px;color:#7f8ca8;font-size:10px;letter-spacing:.06em">LOCAL OBSERVATION-DERIVED PLANET MAPS: <a href="https://www.solarsystemscope.com/textures/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">SOLAR SYSTEM SCOPE</a> · CC BY 4.0 · DISTANCES AND SIZES ARE ARTISTICALLY SCALED</footer><div class="fallback" id="fallback">3D 화면을 불러오지 못했어요. 인터넷 연결과 WebGL 지원 여부를 확인해 주세요.</div>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js';
+const ids=['start','sun','mercury','venus','earth','mars','jupiter','saturn','uranus','neptune','end'];
+const nav=document.getElementById('nav');ids.slice(1,-1).forEach(id=>{const b=document.createElement('button');b.className='nav-dot';b.type='button';b.setAttribute('aria-label',id+' 행성으로 이동');b.innerHTML=`<span>${id.toUpperCase()}</span><i></i>`;b.addEventListener('click',()=>document.getElementById(id).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));b.dataset.target=id;nav.appendChild(b)});
+const renderer=new THREE.WebGLRenderer({canvas:document.getElementById('space'),antialias:true,alpha:false,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.8));renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.08;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#03060f');const camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,.1,2000);scene.add(new THREE.AmbientLight(0x9bb7eb,.025));const sunlight=new THREE.DirectionalLight(0xfff8ee,3.0);sunlight.position.set(-35,16,34);scene.add(sunlight);const fill=new THREE.DirectionalLight(0x688abd,.035);fill.position.set(20,-12,-28);scene.add(fill);
+let seed=84621;const rnd=()=>((seed=(1664525*seed+1013904223)>>>0)/4294967296);// Real observation-derived equirectangular planetary maps (Solar System Scope, CC BY 4.0).
+// The UI never substitutes procedurally generated painted maps for photography.
+// Multiple independent hosts: the original texture server can reject hotlinked WebGL images.
+// Wikimedia Commons carries the same CC BY 4.0 Solar System Scope planet maps.
+const filenames={sun:'2k_sun.jpg',mercury:'2k_mercury.jpg',venus:'2k_venus_atmosphere.jpg',earth:'2k_earth_daymap.jpg',mars:'2k_mars.jpg',jupiter:'2k_jupiter.jpg',saturn:'2k_saturn.jpg',uranus:'2k_uranus.jpg',neptune:'2k_neptune.jpg'};
+const loader=new THREE.TextureLoader();
+const assetStatus=document.createElement('div');assetStatus.id='asset-status';assetStatus.setAttribute('role','status');assetStatus.setAttribute('aria-live','polite');document.body.appendChild(assetStatus);
+let pending=0, loaded=0, failed=0;
+function updateAssetStatus(){const total=pending+loaded+failed;assetStatus.textContent=pending?'로컬 텍스처 적용 중 '+loaded+' / '+total:failed?'이미지 '+failed+'개 누락 — textures 폴더와 다운로드 결과 확인':'로컬 실사 이미지 '+loaded+'개 적용 완료';assetStatus.classList.toggle('error',failed>0);if(!pending&&!failed)setTimeout(()=>assetStatus.classList.add('done'),2500)}
+function loadMap(file,onReady){pending++;updateAssetStatus();loader.load('./textures/'+file,t=>{t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),16);try{onReady(t);loaded++}catch(e){console.error('텍스처 적용 오류',file,e);failed++}pending--;updateAssetStatus()},undefined,err=>{console.error('로컬 텍스처 없음',file,err);failed++;pending--;updateAssetStatus()})}
+const config=[['sun',3.15],['mercury',1.2],['venus',1.65],['earth',1.9],['mars',1.5],['jupiter',3.15],['saturn',2.8],['uranus',2.15],['neptune',2.15]];
+const planets={};const geometry=new THREE.SphereGeometry(1,128,96);
+const atmosVertex=`varying vec3 vNormal;varying vec3 vEye;void main(){vec4 world=modelMatrix*vec4(position,1.);vNormal=normalize(mat3(modelMatrix)*normal);vEye=normalize(cameraPosition-world.xyz);gl_Position=projectionMatrix*viewMatrix*world;}`;
+const atmosFragment=`uniform vec3 glowColor;uniform float strength;varying vec3 vNormal;varying vec3 vEye;void main(){float f=pow(1.-max(dot(normalize(vNormal),normalize(vEye)),0.),3.3);gl_FragColor=vec4(glowColor,f*strength);}`;
+function atmosphere(planet,r,color,power){const shell=new THREE.Mesh(new THREE.SphereGeometry(r*1.035,96,64),new THREE.ShaderMaterial({vertexShader:atmosVertex,fragmentShader:atmosFragment,uniforms:{glowColor:{value:new THREE.Color(color)},strength:{value:power}},transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.FrontSide}));planet.add(shell);return shell;}
+function createRing(r){const inner=r*1.30,outer=r*2.38;const geo=new THREE.RingGeometry(inner,outer,320,16);const pos=geo.attributes.position;const uv=geo.attributes.uv;for(let i=0;i<pos.count;i++){const radial=Math.hypot(pos.getX(i),pos.getY(i));uv.setXY(i,(radial-inner)/(outer-inner),.5);}uv.needsUpdate=true;
+const ring=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:0xe2d3b4,side:THREE.DoubleSide,transparent:true,opacity:.91,roughness:1,metalness:0,depthWrite:false,alphaTest:.025}));
+// Saturn's rings are rendered as real radial bands rather than a flat opaque disk.
+const c=document.createElement('canvas');c.width=1024;c.height=16;const ctx=c.getContext('2d');const pix=ctx.createImageData(c.width,c.height);for(let x=0;x<c.width;x++){let u=x/1023;let gap=Math.sin(u*144)*.12+Math.sin(u*451)*.08;let transparency=u<.10?.09:u<.19?.44:u<.42?.76:u<.70?.60:.35;transparency=Math.max(.04,transparency+gap);if((u>.24&&u<.30)||(u>.69&&u<.72))transparency*=.10;const warm=.67+.3*Math.sin(u*39);for(let y=0;y<16;y++){const k=(y*1024+x)*4;pix.data[k]=Math.round(218*warm);pix.data[k+1]=Math.round(199*warm);pix.data[k+2]=Math.round(173*warm);pix.data[k+3]=Math.round(255*transparency)}}ctx.putImageData(pix,0,0);const ringTex=new THREE.CanvasTexture(c);ringTex.colorSpace=THREE.SRGBColorSpace;ring.material.map=ringTex;ring.material.alphaMap=null;ring.material.needsUpdate=true;ring.rotation.set(-1.12,.18,-.22);return ring}
+config.forEach(([name,r],i)=>{const isSun=name==='sun';const mat=isSun?new THREE.MeshBasicMaterial({color:0x302015}):new THREE.MeshStandardMaterial({color:0xffffff,roughness:name==='earth'?.85:1,metalness:0});const mesh=new THREE.Mesh(geometry,mat);mesh.scale.setScalar(r);mesh.position.set(i*24,0,0);mesh.rotation.z=name==='uranus'?1.67:(name==='saturn'?.40:.08);scene.add(mesh);planets[name]=mesh;
+loadMap(filenames[name],t=>{mat.map=t;mat.color.set(name==='sun'?0xffffff:0xffffff);mat.needsUpdate=true;});
+if(isSun){const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTexture(),color:0xffae55,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));sprite.scale.set(16,16,1);sprite.position.copy(mesh.position);scene.add(sprite);atmosphere(mesh,1.035,0xff9c3b,.55)}
+if(name==='earth'){atmosphere(mesh,1.055,0x3a89ff,.42);const clouds=new THREE.Mesh(new THREE.SphereGeometry(1.018,96,64),new THREE.MeshStandardMaterial({transparent:true,opacity:.78,depthWrite:false,roughness:1,blending:THREE.NormalBlending}));mesh.add(clouds);loadMap('2k_earth_clouds.jpg',t=>{clouds.material.map=t;clouds.material.alphaMap=t;clouds.material.opacity=.58;clouds.material.alphaTest=.08;clouds.material.needsUpdate=true});mesh.userData.clouds=clouds;}
+if(name==='venus')atmosphere(mesh,1.03,0xf1c088,.24);
+if(name==='neptune'||name==='uranus')atmosphere(mesh,1.03,name==='neptune'?0x3169ff:0x7edbe4,.25);
+if(name==='saturn'){const ring=createRing(1);mesh.add(ring);loadMap('2k_saturn_ring_alpha.png',t=>{ring.material.map=t;ring.material.alphaMap=null;ring.material.color.set(0xffffff);ring.material.opacity=1;ring.material.alphaTest=.03;ring.material.needsUpdate=true});}
+});
+
+// Night-side city lights: an independent sphere with physically directional illumination masking.
+// It rotates with Earth, keeping coastlines aligned with the day map.
+const earthMesh=planets.earth;
+const nightUniforms={nightMap:{value:null},lightDir:{value:sunlight.position.clone().normalize()}};
+const nightShell=new THREE.Mesh(new THREE.SphereGeometry(1.006,128,96),new THREE.ShaderMaterial({
+ uniforms:nightUniforms,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+ vertexShader:`varying vec2 vUv;varying vec3 vWorldNormal;void main(){vUv=uv;vWorldNormal=normalize(mat3(modelMatrix)*normal);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+ fragmentShader:`uniform sampler2D nightMap;uniform vec3 lightDir;varying vec2 vUv;varying vec3 vWorldNormal;void main(){float light=dot(normalize(vWorldNormal),normalize(lightDir));float night=1.-smoothstep(-.26,.10,light);vec3 city=texture2D(nightMap,vUv).rgb;float glow=max(max(city.r,city.g),city.b);gl_FragColor=vec4(city*1.0,night*smoothstep(.07,.36,glow)*.85);}`
+}));
+nightShell.visible=false;earthMesh.add(nightShell);
+loadMap('2k_earth_nightmap.jpg',t=>{nightUniforms.nightMap.value=t;nightShell.visible=true;});
+// The surface is diffuse while its thin atmosphere and independent cloud sphere
+// create a natural separation of illuminated air, water and cloud cover.
+
+// Moon appears near Earth to convey scale and depth.
+const moon=new THREE.Mesh(new THREE.SphereGeometry(.28,64,48),new THREE.MeshStandardMaterial({color:0xd0cbc2,roughness:1}));moon.position.set(24*3+3.1,.9,-1.3);scene.add(moon);loadMap('2k_moon.jpg',t=>{moon.material.map=t;moon.material.needsUpdate=true});
+function glowTexture(){const c=document.createElement('canvas');c.width=c.height=256;const ctx=c.getContext('2d');const grad=ctx.createRadialGradient(128,128,15,128,128,128);grad.addColorStop(0,'rgba(255,176,71,.55)');grad.addColorStop(.25,'rgba(255,129,35,.26)');grad.addColorStop(.65,'rgba(255,94,14,.07)');grad.addColorStop(1,'rgba(255,90,0,0)');ctx.fillStyle=grad;ctx.fillRect(0,0,256,256);return new THREE.CanvasTexture(c)}
+const count=3300;const stars=new Float32Array(count*3),sizes=new Float32Array(count);for(let i=0;i<count;i++){stars[i*3]=rnd()*430-70;stars[i*3+1]=rnd()*190-95;stars[i*3+2]=-90-rnd()*320;sizes[i]=rnd()};const starGeo=new THREE.BufferGeometry();starGeo.setAttribute('position',new THREE.BufferAttribute(stars,3));const starField=new THREE.Points(starGeo,new THREE.PointsMaterial({color:0xb8c6ea,size:.6,transparent:true,opacity:.85,sizeAttenuation:true}));scene.add(starField);
+let desired=0,progress=0;
+// Camera-only revision: tighter planetary portraits without changing the scene.
+const targets=ids.map((id,i)=>{
+  if(i===0)return {x:-18,y:3,z:15,lookX:0};
+  if(i===10)return {x:210,y:3,z:24,lookX:215};
+  const x=(i-1)*24;
+  // Keep the planet to the right of the editorial copy; larger planets get more clearance.
+  const r=config[i-1][1];
+  const side=5.4;
+  return {x:x-side,y:r*.28,z:Math.max(6.7,r*2.9+1.7),lookX:x};
+});
+const sectionNodes=ids.map(id=>document.getElementById(id));
+function scrollUpdate(){
+  const max=document.documentElement.scrollHeight-innerHeight;
+  progress=max>0?scrollY/max:0;
+  document.getElementById('progress').style.width=(progress*100)+'%';
+  const center=scrollY+innerHeight*.5;
+  let current=0;
+  for(let i=0;i<sectionNodes.length;i++)if(sectionNodes[i].offsetTop<=center)current=i;
+  desired=current;
+  sectionNodes.forEach((el,i)=>el.classList.toggle('in-view',i===current));
+  document.querySelectorAll('.nav-dot').forEach(n=>n.classList.toggle('active',n.dataset.target===ids[current]));
+}
+addEventListener('scroll',scrollUpdate,{passive:true});scrollUpdate();
+function resize(){renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.fov=innerWidth<700?54:42;camera.updateProjectionMatrix()}
+addEventListener('resize',resize);resize();
+const clock=new THREE.Clock();
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mobile=()=>innerWidth<700;
+let smoothedTravel=0,previousTravel=0,scrollVelocity=0;
+const cameraGoal=new THREE.Vector3(),focusGoal=new THREE.Vector3(),focusCurrent=new THREE.Vector3();
+const forward=new THREE.Vector3();
+function getTravel(){
+  const anchor=scrollY+innerHeight*.35;
+  for(let i=0;i<sectionNodes.length-1;i++){
+    const start=sectionNodes[i].offsetTop+innerHeight*.35;
+    const end=sectionNodes[i+1].offsetTop+innerHeight*.35;
+    if(anchor<end)return i+THREE.MathUtils.clamp((anchor-start)/Math.max(1,end-start),0,1);
+  }
+  return ids.length-1;
+}
+function render(){
+  requestAnimationFrame(render);
+  const dt=Math.min(clock.getDelta(),.05),t=clock.elapsedTime;
+  const travel=getTravel();
+  const damp=reduce?1:1-Math.exp(-dt*4.8);
+  smoothedTravel=THREE.MathUtils.lerp(smoothedTravel,travel,damp);
+  const segment=Math.min(Math.floor(smoothedTravel),targets.length-2);
+  const phase=THREE.MathUtils.clamp(smoothedTravel-segment,0,1);
+  const eased=phase*phase*(3-2*phase);
+  const v=targets[segment],w=targets[segment+1];
+  const swoop=Math.sin(phase*Math.PI);
+  const sign=segment%2===0?1:-1;
+  const motionScale=mobile()?.62:1;
+  // Wide orbital swing -> low flyby -> accelerated approach to the next planet.
+  // The endpoints remain safely outside each planet; only the flight path changes.
+  const baseX=THREE.MathUtils.lerp(v.x,w.x,eased);
+  const baseY=THREE.MathUtils.lerp(v.y,w.y,eased);
+  const baseZ=THREE.MathUtils.lerp(v.z,w.z,eased);
+  const flyby=Math.sin(Math.PI*phase);
+  const dive=Math.sin(2*Math.PI*phase);
+  const bankDirection=segment%2===0?1:-1;
+  cameraGoal.set(
+    baseX + flyby*(6.5*motionScale) - dive*(3.2*motionScale),
+    baseY + bankDirection*flyby*(10.5*motionScale) + dive*(3.1*motionScale),
+    baseZ + flyby*(13.5*motionScale) - dive*(5.4*motionScale)
+  );
+  const focusX=THREE.MathUtils.lerp(v.lookX,w.lookX,eased);
+  // Anticipatory look-ahead makes the approach feel like intentional piloting.
+  focusGoal.set(focusX + flyby*(7.5*motionScale), -bankDirection*flyby*3.2*motionScale,0);
+  const cameraBlend=reduce?1:1-Math.exp(-dt*5.2);
+  camera.position.lerp(cameraGoal,cameraBlend);
+  focusCurrent.lerp(focusGoal,cameraBlend);
+  camera.lookAt(focusCurrent);
+  // Cinematic banking and pitch. Roll peaks mid-flight and levels on arrival.
+  const targetRoll=reduce?0:bankDirection*flyby*(mobile()?.13:.28) + dive*(mobile()?.025:.055);
+  const roll=THREE.MathUtils.lerp(camera.userData.roll||0,targetRoll,cameraBlend);
+  camera.userData.roll=roll;
+  camera.rotateZ(roll);
+  // Brief, restrained speed-related field-of-view widening.
+  const targetFov=(mobile()?54:42)+(reduce?0:flyby*9.5);
+  camera.fov=THREE.MathUtils.lerp(camera.fov,targetFov,cameraBlend);
+  camera.updateProjectionMatrix();
+  for(const [name,mesh] of Object.entries(planets)){
+    mesh.rotation.y+=dt*(name==='sun'?.018:.055);
+    if(name==='earth'&&mesh.userData.clouds)mesh.userData.clouds.rotation.y+=dt*.007;
+  }
+  starField.rotation.y=Math.sin(t*.03)*.002;
+  moon.position.y=.9+Math.sin(t*.32)*.22;
+  renderer.render(scene,camera);
+}
+render();
+document.getElementById('loading').classList.add('hide');
+</script>
+<script>setTimeout(()=>{if(!document.getElementById('loading').classList.contains('hide')){document.getElementById('loading').classList.add('hide');document.getElementById('fallback').style.display='block'}},9000)</script>
+</body></html>
