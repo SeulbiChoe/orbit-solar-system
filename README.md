@@ -83,7 +83,10 @@ Three.js는 [jsDelivr CDN](https://cdn.jsdelivr.net/npm/three@0.161.0/build/thre
 
 ### GitHub Pages
 
-저장소의 **Settings → Pages → Build and deployment**에서 **Deploy from a branch**, `main` 브랜치와 `/(root)`를 지정합니다. 배포가 완료되면 해당 화면의 **Visit site** 링크로 접속할 수 있습니다. 프로젝트 사이트의 기본 주소는 `https://<GitHub 계정명>.github.io/orbit-solar-system/`입니다.
+- **웹사이트:** <https://seulbichoe.github.io/orbit-solar-system/>
+- **GitHub 저장소:** <https://github.com/SeulbiChoe/orbit-solar-system>
+
+저장소의 **Settings → Pages → Build and deployment**에서 **Deploy from a branch**, `main` 브랜치와 `/(root)`를 사용합니다. 배포가 완료되면 위 웹사이트 주소 또는 해당 설정 화면의 **Visit site** 링크로 접속할 수 있습니다.
 
 텍스처는 `./textures/파일명`의 상대 경로를 사용하므로 프로젝트 저장소 이름이 포함된 Pages 하위 경로에서도 로드됩니다.
 
